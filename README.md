@@ -1,4 +1,5 @@
 # Ganondorf
+[![Build Status](https://travis-ci.org/three-triangles/ganondorf.svg?branch=master)](https://travis-ci.org/three-triangles/ganondorf)
 
 To start your new Phoenix application:
 
