@@ -12,7 +12,9 @@ config :logger, level: :warn
 # Configure your database
 config :ganondorf, Ganondorf.Repo,
   adapter: Ecto.Adapters.Postgres,
+  database: "ganondorf_test",
+  hostname: "localhost",
   username: "postgres",
   password: "postgres",
-  database: "ganondorf_test",
-  size: 1 # Use a single connection for transactional tests
+  template: "template0",
+  pool: Ecto.Adapters.SQL.Sandbox
