@@ -1,0 +1,19 @@
+#!/bin/bash -l
+
+if ! command -v docker > /dev/null 2>&1; then
+  echo "Docker is required, Please consult https://docs.docker.com/"
+  exit 1
+fi
+
+if ! command -v docker-compose > /dev/null 2>&1; then
+  echo "Docker Compose is required, Please consult https://docs.docker.com/"
+  exit 1
+fi
+
+docker-compose stop
+docker-compose up -d database
+docker-compose run app bash -c "mix deps.get && npm set progress=false npm install --no-spin && MIX_ENV=test mix test 1>&1"
+result=$?
+docker-compose stop
+
+exit $result

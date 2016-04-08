@@ -1,0 +1,16 @@
+database:
+  image: postgres
+  expose:
+    - "5432"
+app:
+  build: .
+  command: bash -c "mix deps.get && npm install && mix phoenix.server 2>&1"
+  volumes:
+    - .:/code
+  links:
+    - database:database.local
+  ports:
+    - "4000:4000"
+  environment:
+    DB_HOSTNAME: "database.local"
+    MIX_ENV: "dev"

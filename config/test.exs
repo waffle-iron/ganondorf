@@ -13,8 +13,8 @@ config :logger, level: :warn
 config :ganondorf, Ganondorf.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "ganondorf_test",
-  hostname: "localhost",
-  username: "postgres",
-  password: "postgres",
+  hostname: System.get_env("DB_HOSTNAME") || "localhost",
+  username: System.get_env("DB_USERNAME") || "postgres",
+  password: System.get_env("DB_PASSWORD") || "postgres",
   template: "template0",
   pool: Ecto.Adapters.SQL.Sandbox
