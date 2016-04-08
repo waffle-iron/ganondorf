@@ -19,6 +19,18 @@ config :ganondorf, Ganondorf.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :lodgings, OpenPlanet.Lodgings.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+config :ganondorf, Ganondorf.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: System.get_env("DB_NAME") || "ganondorf_prod",
+  hostname: System.get_env("DB_HOSTNAME") || "localhost",
+  username: System.get_env("DB_USERNAME") || "postgres",
+  password: System.get_env("DB_PASSWORD") || "postgres",
+  template: "template0",
+  pool_size: 20
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
@@ -62,4 +74,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"

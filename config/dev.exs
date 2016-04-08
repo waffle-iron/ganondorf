@@ -36,8 +36,8 @@ config :phoenix, :stacktrace_depth, 20
 config :ganondorf, Ganondorf.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "ganondorf_dev",
-  hostname: "localhost",
-  username: "postgres",
-  password: "postgres",
+  hostname: System.get_env("DB_HOSTNAME") || "localhost",
+  username: System.get_env("DB_USERNAME") || "postgres",
+  password: System.get_env("DB_PASSWORD") || "postgres",
   template: "template0",
   pool_size: 10
