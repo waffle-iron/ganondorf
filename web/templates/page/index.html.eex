@@ -1,6 +1,6 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+  <h2><%= gettext "Welcome to %{name}", name: "Ganondorf" %></h2>
+  <p class="lead">An OpenID Connect authentication platform<br />designed for multiple applications in mind!</p>
 </div>
 
 <div class="row marketing">

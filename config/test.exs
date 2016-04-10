@@ -9,6 +9,10 @@ config :ganondorf, Ganondorf.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+# Used to boost up speed of test suite
+# Don't do this in production!!
+config :comeonin, :bcrypt_log_rounds, 4
+
 # Configure your database
 config :ganondorf, Ganondorf.Repo,
   adapter: Ecto.Adapters.Postgres,
