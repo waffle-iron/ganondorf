@@ -2,6 +2,7 @@ FROM benfalk/phoenix-elixir
 
 ENV MIX_ENV prod
 ENV PORT 80
+RUN apt-get install -y build-essential
 
 ADD . /code
 RUN mix deps.get
