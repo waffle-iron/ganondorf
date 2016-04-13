@@ -14,15 +14,15 @@ defmodule Ganondorf.SessionController do
       {:error, changeset} -> render conn, "new.html", changeset: changeset
       {:ok, user} ->
         conn
-        |> put_session(:current_user, user)
+        |> Guardian.Plug.sign_in(user)
         |> put_flash(:info, "Welcome back!")
         |> redirect(to: page_path(conn, :index))
     end
   end
 
   def delete(conn, _params) do
-    delete_session(conn, :current_user)
+    Guardian.Plug.sign_out(conn)
     |> put_flash(:info, 'You have been logged out')
-    |> redirect(to: session_path(conn, :new))
+    |> redirect(to: page_path(conn, :index))
   end
 end

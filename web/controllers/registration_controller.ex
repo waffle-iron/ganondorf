@@ -16,7 +16,7 @@ defmodule Ganondorf.RegistrationController do
       {:ok, new_user} ->
         conn
         |> put_flash(:info, "Successfully registered and logged in")
-        |> put_session(:current_user, new_user)
+        |> Guardian.Plug.sign_in(new_user)
         |> redirect(to: page_path(conn, :index))
     end
   end

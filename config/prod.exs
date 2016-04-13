@@ -22,6 +22,9 @@ config :logger, level: :info
 config :lodgings, OpenPlanet.Lodgings.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
+config :guardian, Guardian,
+  secret_key: System.get_env("GUARDIAN_SECRET_KEY")
+
 config :ganondorf, Ganondorf.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: System.get_env("DB_NAME") || "ganondorf_prod",
