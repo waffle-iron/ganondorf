@@ -17,11 +17,15 @@ defmodule Ganondorf.Router do
 
   scope "/", Ganondorf do
     pipe_through :browser # Use the default browser stack
+
     get "/registration", RegistrationController, :new
     post "/registration", RegistrationController, :create
     get "/login", SessionController, :new
     post "/login", SessionController, :create
     get "/logout", SessionController, :delete
+
+    get  "/authorize", AuthorizationController, :authorize
+    post "/authorize", AuthorizationController, :authorize
 
     get "/", PageController, :index
   end
