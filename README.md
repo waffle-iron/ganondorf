@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/three-triangles/ganondorf.png?label=ready&title=Ready)](https://waffle.io/three-triangles/ganondorf)
 # Ganondorf
 
 <p align="center">
